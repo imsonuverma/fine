@@ -10,19 +10,34 @@
 </body>
 </html>
 <script>
-    function user (fn,ln,ag){
+function user (fn,ln,ag){
 this.fname=fn;
 this.lname=ln;
 this.age=ag;
   }
 let obj=new user("sonu","verma",25)
 let obj2=new user("monu","sharma",26)
-console.log(obj.age)
+// console.log(obj)
 
-function names (){
-console.log(this.age)
+let a={
+  name:"akash"
+}
+let b={
+  name:"aman"
+}
+let c={
+  name:"akhil"
+}
+function names (m,n,N){
+  this.age=m
+  this.no=n
+  this.name=N
+console.log(this.name)
   }
-  names.call(obj2)
+  names.call(c,24,978555,"aaaa")
+// x()
+// console.log(x)
+
 
 
 </script>
