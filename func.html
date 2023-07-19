@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function user (fn,ln,ag){
+this.fname=fn;
+this.lname=ln;
+this.age=ag;
+  }
+let obj=new user("sonu","verma",25)
+let obj2=new user("monu","sharma",26)
+console.log(obj.age)
+
+function names (){
+console.log(this.age)
+  }
+  names.call(obj2)
+
+
+</script>
