@@ -13,3 +13,30 @@
     <h1> masai school</h1>
 </body>
 </html>
+<script>
+    let ary=[1,2,3,4]
+    let mydata7 =localStorage.setItem("name",JSON.stringify(ary))
+    let mydata2=localStorage.getItem("name")
+    var regular = JSON.parse(mydata2)
+
+    console.log(regular[3])
+    // localStorage.removeItem("name")
+    var person = {
+name : "Sidharth",
+age : 100,
+height: "6 Ft 12 In",
+gender : "Female",
+hobbies: ["Coding", "Weight Lifting", "Running", "Eating"]
+}
+let mydata =localStorage.setItem("name",ary)
+// let mydata2 =localStorage.setItem("nam",person)
+var json = JSON.stringify(person)
+let mydata3 =localStorage.setItem("abc",json)
+    let mydata5=localStorage.getItem("abc")
+
+    console.log(mydata5)
+    var regularObject = JSON.parse(mydata5)
+console.log(regularObject.name)
+
+
+</script>
