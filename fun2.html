@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form action="" id="prodform" onsubmit="nkiepro(event)">
+  <input type="text" placeholder="name" id="name">
+  <input type="number" placeholder="price" id="price">
+  <input type="submit">
+  </form>
+    
+</body>
+</html>
+<script>
+    function nikeProductCF(n, p) {
+  this.name = n;
+  this.price = p;
+}
+// let arr=[];
+function nkiepro(e){
+  e.preventDefault()
+  let form= document.querySelector("#name")
+  let name=form.value
+  let price2=form= document.querySelector("#price")
+  let price=price2.value
+  let prod=new nikeProductCF(name,price)
+  // arr.push(prod)
+  console.log(prod)
+
+
+}
+
+</script>
