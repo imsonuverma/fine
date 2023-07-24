@@ -10,34 +10,78 @@
 <body>
     <div id="container"></div>
     <input id="url" type="url" placeholder="paste url">
-    <button onclick="sonu()">submit</button>
+    <span><button onclick="sonu()">submit</button></span>
     <button onclick="monu()">start</button>
+    <button onclick="konu()">stop</button>
 </body>
+
 </html>
-<script>
-    function sonu() {
-        let url2 = document.querySelector("#url").value;
-        let images = JSON.parse(localStorage.getItem("img")) || [];
-        images.push(url2);
-        localStorage.setItem("img", JSON.stringify(images));
-    }
+ <script>
+    // function sonu() {
+    //     let url2 = document.querySelector("#url").value;
+    //     let images = JSON.parse(localStorage.getItem("img")) || [];
+    //     images.push(url2);
+    //     localStorage.setItem("img", JSON.stringify(images));
+    // }
 
-    let counter = 0;
+    // let counter = 0;
+    // let idvigi;
 
-    function monu() {
-        let images2 = JSON.parse(localStorage.getItem("img")); // Corrected the key in localStorage.getItem()
-        let container = document.querySelector("#container"); // Added "#" before "container" to select the element by its ID
-        let img = document.createElement("img"); // Define the 'img' variable to create an <img> element
+    // function monu() {
+    //     let images2 = JSON.parse(localStorage.getItem("img")); // Corrected the key in localStorage.getItem()
+    //     let container = document.querySelector("#container"); // Added "#" before "container" to select the element by its ID
+    //     let img = document.createElement("img"); // Define the 'img' variable to create an <img> element
 
-        setInterval(function () {
-            if (counter < images2.length) {
+    //     let idvigid = setInterval(function () {
+    //         if (counter === images2.length) {
+    //             counter = 0
+    //         }
+    //         // else if (counter < images2.length){
+    //         img.src = images2[counter];
+    //         container.appendChild(img); // Use appendChild() to add the image to the container
+    //         counter++;
+    //         // } 
+    //         // else {
+    //         //     clearInterval(); // Stop the slideshow when all images are displayed
+    //         // }
+            
+    //     }, 3000);
+    // };
+    //     function konu() {
+    //     console.log(counter);
+    //     clearInterval(idvigi)
+    //     }
+
+    
+        function sonu() {
+            let url2 = document.querySelector("#url").value;
+            let images = JSON.parse(localStorage.getItem("img")) || [];
+            images.push(url2);
+            localStorage.setItem("img", JSON.stringify(images));
+        }
+
+        let counter = 0;
+        let intervalId;
+
+        function monu() {
+            let images2 = JSON.parse(localStorage.getItem("img"));
+            let container = document.querySelector("#container");
+            let img = document.createElement("img");
+
+            intervalId = setInterval(function () {
+                if (counter === images2.length) {
+                    counter = 0;
+                }
+
                 img.src = images2[counter];
-                container.appendChild(img); // Use appendChild() to add the image to the container
+                container.appendChild(img);
                 counter++;
-            } else {
-                clearInterval(); // Stop the slideshow when all images are displayed
-            }
-        }, 3000);
-    }
-</script>
+            }, 3000);
+        }
 
+        function konu() {
+            console.log(counter);
+            clearInterval(intervalId); // Use the intervalId variable to clear the interval
+        }
+    
+</script>
