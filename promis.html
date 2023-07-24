@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      
+    </style>
 </head>
 <body>
-    
+    <img src="https://media.tenor.com/hlKEXPvlX48AAAAi/loading-loader.gif" alt="" id="img">;
 </body>
 </html>
 <script>
@@ -52,15 +55,15 @@
 
 //after 4 seconds, data is there, replace the img with success image
 
-// let img = document.getElementById('img');
+let img = document.getElementById('img');
 
 //mimicking getting the data
-// function getData() {
-  //nature of data?
+function getData() {
+  // nature of data?
 
-//   return true;
-// }
-
+  return true;
+}
+// console.log(getData())
 // arr.map(function (element, index) {
 
 // })
@@ -80,19 +83,23 @@ let myPromise = new Promise(function (resolve, reject) {
     }
   }, 3000);
 });
+  console.log(myPromise);
 
 //if you want to handle success value
 
-// myPromise.then(function (res) {
-//   console.log('res:', res);
+myPromise.then(function (res) {
+  console.log('res:', res);
+  // img.src = 'https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g';
+img.src="https://media.tenor.com/wpSo-8CrXqUAAAAj/loading-loading-forever.gif"
+})
 
 //   img.src = 'https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g';
 // });
 
 // //if you want to handle reject/error value
 
-// myPromise.catch(function (err) {
-//   console.log('err:', err);
+myPromise.catch(function (err) {
+  console.log('err:', err);})
 // });
 
 // myPromise.finally(function () {
