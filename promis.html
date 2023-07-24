@@ -9,97 +9,46 @@
     </style>
 </head>
 <body>
-    <img src="https://media.tenor.com/hlKEXPvlX48AAAAi/loading-loader.gif" alt="" id="img">;
+    <img src="" alt="" id="img">;
+    <input type="number">
+    <button  onclick="pass()">submit</button>
 </body>
 </html>
 <script>
-//promise
-
-
-//start of 10th standard - promise made
-
-//promise is in process
-
-//finally, promise ends
-
-//1. promise is fullfilled ( sweets )
-//2. promise is failed ( chappal )
-//3. promise is pending
-
-//when you make a promise, it takes time.
-//promise will return a value after some time.
-
-//waiting while promise is in process
-
-//promise should not have blocking behaviour
-
-//network request
-
-//instagram
-
-//scrolling insta feed - start loading
-
-//uploading......
-//uploaded.
-//failed.
-
-//network requests
-
-//setTimeout to mimick a delay
-
-//promise
-
-// user visits website
-
-//we are getting data, wait, show loading img
-
-//after 4 seconds, data is there, replace the img with success image
 
 let img = document.getElementById('img');
+let a;
+function pass(){
+let a = document.querySelector('input').value
 
-//mimicking getting the data
-function getData() {
-  // nature of data?
 
-  return true;
-}
-// console.log(getData())
-// arr.map(function (element, index) {
 
-// })
 
 let myPromise = new Promise(function (resolve, reject) {
-  let data = false; //initally we dont have data
-
-//   we are waiting for data
-
   setTimeout(function () {
-    data = getData();
-
-    if (data) {
-      resolve('sweets'); //success value
+    // data = getData();
+    let password = 1111
+    if (password==a) {
+      resolve('104050'); //success value
     } else {
       reject('chappal'); //reject value
     }
-  }, 3000);
+  }, 5000);
 });
   console.log(myPromise);
 
-//if you want to handle success value
 
 myPromise.then(function (res) {
   console.log('res:', res);
   // img.src = 'https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g';
-img.src="https://media.tenor.com/wpSo-8CrXqUAAAAj/loading-loading-forever.gif"
+img.src="https://content.phonepe.com/ppcms/media/filer_public_thumbnails/filer_public/98/a2/98a299a0-6eeb-4aef-841d-844bf6772f88/success_-_p2p_-_000001.png__200x400_q85_subsampling-2.png"
 })
 
-//   img.src = 'https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g';
-// });
-
-// //if you want to handle reject/error value
 
 myPromise.catch(function (err) {
+  img.src="https://content.phonepe.com/ppcms/media/filer_public_thumbnails/filer_public/ba/8a/ba8a6117-e578-4206-b9eb-c47116f9f710/failed_-_online_-_cardwallet.png__200x400_q85_subsampling-2.png"
   console.log('err:', err);})
+}
 // });
 
 // myPromise.finally(function () {
