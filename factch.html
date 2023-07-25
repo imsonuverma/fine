@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //fetch is going to take time
+//it should not block other code
+//fetch needs to be a promise
+//this is async call
+
+//.then & .catch
+//async await
+
+// i want to make an api call
+
+//fetch is API
+
+//Prototype is inheritance
+
+//Prototype ( fetch ) is a tool
+//Inheritence is a tool or is it a concept
+
+//Inheritence is js is implemented using prototype
+
+//API is used using a tool called fetch()
+
+fetch('https://fakestoreapi.com/products')
+  .then(function (res) {
+    return res.json(); //collecting stream
+  })
+  .then(function (res) {
+    console.log('res:', res);
+  })
+  .catch(function (err) {
+    console.log('err:', err);
+  });
+
+//convert above code into async await
+
+// let container = document.getElementById('container');
+
+// let data;
+// async function getData() {
+//   try {
+//     let res = await fetch('https://fakestoreapi.com/products');
+
+//     //convert the stream into actual data
+
+//     data = await res.json();
+
+//     appendProducts(data);
+//   } catch (err) {
+//     console.log('err:', err);
+//   }
+// }
+
+// getData();
+
+
+
+
+
+
+
+
+
+
+
+
+//we need to append
+
+// function appendProducts(data) {
+//   //data - array of object
+
+//   container.innerHTML = null;
+
+//   data.forEach(function (el) {
+//     let div = document.createElement('div');
+
+//     let img = document.createElement('img');
+
+//     img.src = el.image;
+
+//     let title = document.createElement('p');
+
+//     title.innerText = el.title;
+
+//     let price = document.createElement('p');
+
+//     price.innerText = el.price;
+
+//     div.append(img, title, price);
+
+//     container.append(div);
+//   });
+// }
+
+</script>
