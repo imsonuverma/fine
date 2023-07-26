@@ -10,6 +10,7 @@
             border: 2px solid;
             height: 400px;
             width: 405px;
+            overflow: scroll;
         }
 
         #box {
@@ -19,12 +20,13 @@
 </head>
 
 <body>
-    <input oninput="main()" type="text" id="box">
+    <input oninput="debounce(main,1000)" type="text" id="box">
     <div id="movie"></div>
 </body>
 
 </html>
 <script>
+    let id;
     let movide = document.querySelector("#movie")
     async function main() {
         try {
@@ -32,7 +34,7 @@
             console.log(infor)
             let res = await fetch(`http://www.omdbapi.com/?apikey=7cc2c43f&s=${infor}`)
             let data = await res.json()
-            let actualdata = data.Search
+            let actualdata = data.Search;
             if (actualdata != undefined) {
                 appendmovie(actualdata)
             }
@@ -43,12 +45,21 @@
         }
     }
     function appendmovie(data) {
+        movide.innerHTML = null
         data.forEach(function (el) {
             let p = document.createElement("p")
-            p.innerText = el.Tittle
+            p.innerText = el.Title
             movide.append(p)
         })
     }
 
+    function debounce(func, delay) {
+        if (id) {
+            clearTimeout(id)
+        }
+        id = setTimeout(function () {
+            func()
+        }, delay);
+    }
 
 </script>
