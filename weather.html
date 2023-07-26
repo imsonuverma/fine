@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Weather App</title>
+    </head>
+
+    <body>
+        <input type="text" placeholder="Enter city" id="city">
+        <button onclick="getWeather()">Submit</button>
+        <div id="container"></div>
+
+        <script>
+            let container = document.querySelector("#container")
+            let abc = "1c468c8ab39c82a29c8ebbd4e23f6be2";
+            let data;
+            async function getWeather() {
+                try {
+                    let city = document.querySelector("#city").value;
+                    let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${abc}&units=metric`)
+                    data = await res.json();
+                    console.log(data)
+                    appenddata(data)
+
+                }
+
+                catch (err) {
+                    console.log('Error:', err);
+                };
+            }
+            function appenddata() {
+                let name = document.createElement("p")
+                name.innerText = `name -${data.name}`
+                let temp = document.createElement("p")
+                temp.innerText = `name -${data.main.temp}`
+                let humidity = document.createElement("p")
+                humidity.innerText = `name -${data.main.humidity}`
+                let pressure = document.createElement("p")
+                pressure.innerText = `name -${data.main.pressure}`
+                container.append(name, temp, humidity, pressure)
+            }
+        </script>
+    </body>
+
+    </html>
