@@ -14,8 +14,8 @@
 
     <head>
         <title>Weather App</title>
-        <style>
-            input{
+        <!-- <style> -->
+        <!-- /* input{
                 border-radius: 20%;
                 background-color: aqua;
             }
@@ -23,36 +23,60 @@
                 border-radius: 30%;
                 background-color: blue;
                 color: aliceblue;
+            } */ -->
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                height: 500px;
+                width: 600px;
             }
-            
-            
         </style>
+        <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+        <style>
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 500px;
+                width: 600px;
+            }
+        </style>
+
+        <!-- </style> -->
     </head>
 
     <body>
         <input type="text" placeholder="Enter city" id="city">
         <button onclick="getWeather()">Submit</button>
         <div id="container"></div>
+        <div class="mapouter">
+            <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" frameborder="0" scrolling="no"
+                    marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/124/">visit
+                    123movies-to.org</a><br></div>
+        </div>
 
         <script>
             let container = document.querySelector("#container")
+            let gmap = document.querySelector("#gmap_canvas")
             let abc = "1c468c8ab39c82a29c8ebbd4e23f6be2";
             let data;
-            async function getWeather() {
-                try {
-                    let city = document.querySelector("#city").value;
-                    let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${abc}&units=metric`)
-                    data = await res.json();
-                    console.log(data)
-                    appenddata(data)
+            let city;
+                 async function getWeather() {
+                    try {
+                         city = document.querySelector("#city").value;
+                        let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${abc}&units=metric`)
+                        data = await res.json();
+                        console.log(data)
+                        appenddata(data)
 
+                    }
+
+                    catch (err) {
+                        console.log('Error:', err);
+                    };
                 }
-
-                catch (err) {
-                    console.log('Error:', err);
-                };
-            }
             function appenddata() {
+                container.innerHTML = null
                 let name = document.createElement("p")
                 name.innerText = `name -${data.name}`
                 let temp = document.createElement("p")
@@ -62,6 +86,7 @@
                 let pressure = document.createElement("p")
                 pressure.innerText = `name -${data.main.pressure}`
                 container.append(name, temp, humidity, pressure)
+                gmap.src = `https://maps.google.com/maps?q=${city}=&z=13&ie=UTF8&iwloc=&output=embed`
             }
         </script>
     </body>
