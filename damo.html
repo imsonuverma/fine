@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+
+
+
+        fetch('https://fakestoreapi.com/products')
+            .then(function (abc) {
+                return abc.json()
+
+
+            })
+            .then(function (xyz) {
+                console.log(xyz)
+                appendProducts(xyz);
+
+            })
+            .catch(function (err) {
+                console.log(err)
+
+            })
+
+
+
+        function appendProducts(products) {
+            const container = document.getElementById('container');
+
+
+            container.innerHTML = "";
+
+            products.forEach(function (el) {
+                let div = document.createElement('div');
+
+                let img = document.createElement('img');
+
+                img.src = el.image;
+
+                let title = document.createElement('p');
+
+                title.innerText = el.title;
+
+                let price = document.createElement('p');
+
+                price.innerText = el.price;
+
+                div.append(img, title, price);
+
+                container.append(div);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
