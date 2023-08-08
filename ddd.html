@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!DOCTYPE html>
+
+    <title>Movie Search</title>
+    <style>
+        #movie {
+            border: 2px solid;
+            height: 400px;
+            width: 405px;
+            overflow-y: auto;
+            /* Add scrollbar when needed */
+        }
+
+        #box {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <input oninput="main()" type="text" id="box" placeholder="Enter movie name">
+    <div id="movie"></div>
+
+    <script>
+        let movide = document.querySelector("#movie");
+
+        async function main() {
+            try {
+                let infor = document.querySelector("#box").value;
+                console.log(infor);
+                let res = await fetch(`http://www.omdbapi.com/?apikey=YOUR_OMDB_API_KEY&s=${infor}`);
+                let data = await res.json();
+                let actualdata = data.Search;
+                if (actualdata !== undefined) {
+                    appendmovie(actualdata);
+                }
+                console.log(actualdata);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        function appendmovie(data) {
+            movide.innerHTML = ''; // Clear previous results before appending new ones
+            data.forEach(function (el) {
+                let p = document.createElement("p");
+                p.innerText = el.Title; // Corrected property name here
+                movide.append(p);
+            });
+        }
+    </script>
+</body>
+
+</html>

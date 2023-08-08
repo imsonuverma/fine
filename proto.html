@@ -8,102 +8,20 @@
 </head>
 
 <body>
-    <h1>counter</h1>
-    <h2></h2>
-    <span></span>
-    <input type="text">
+    
 </body>
+<input id="url" type="url" placeholder="paste url">
+<button onclick="sonu()">submit</button>
 
 </html>
 <script>
-    //     let ob ={
-    // name:"sonu",
-    // iffc:"mahb00134",
+    function sonu() {
+  let url2 = document.querySelector("#url").value;
+  let images = JSON.parse(localStorage.getItem("img"))||[];
+  images.push(url2);
+  localStorage.setItem("img", JSON.stringify(images));
+}
 
-    // roll:23,
 
-    //   getname:function(a){
-    //     return this.roll
-    //     // console.log(a)
-    //   }
-    // }
-    // let ob2={
-    //   name:"ravi",
-    //   roll:25,
 
-    // __proto__:ob
-    // }
-    // let ob3={
-    //   name:"monu",
-    //   roll:26,
-    // account:"bank of maha",
-
-    // __proto__:ob2
-    // }
-    // console.log(ob3)
-    // let ob4={};
-    // console.log(ob4)
-    // function user (fn,ln,ag){
-    // this.fname=fn;
-    // this.lname=ln;
-    // this.age=ag;
-    //   }
-    // user.prototype.city= function (c) {
-    //     this.city=c
-    // }
-    // let obj=new user("sonu","verma",25)
-    // // console.log(obj)
-    // obj.city("goa")
-    // console.log(obj)
-    // let a={
-    //     // name:"sonu",
-    //     getname:function(p){
-    //         this.roll=11
-
-    //         return this.roll
-    //         // console.log(p)
-    //             this.roll=11
-
-    //     }
-    // }
-    // let b={
-    //     __proto__:a
-    // }
-    // b.name=21
-    // // console.log(b.getname())
-    // Object.prototype.s=function(){
-    //     return this
-    // }
-    // let city={"delhi":"newdelhi"}
-    // let sim=["vi"]
-    // // console.log(city.s())
-    // function sonu(n){
-    //     this.name=n
-    // }
-    // sonu.prototype=a
-    // let ax= new sonu("v")
-    // console.log(ax.getname())
-    // showCounter()
-
-    let a = document.querySelector("span")
-    let count = 5
-    function counter() {
-        let val = document.querySelector("input").value
-        console.log(val)
-
-        if (val === "my name is sonu") {
-        }
-        if (count == 0) {
-            clearInterval(b)
-            alert("time up")
-
-        }
-        else { count-- }
-        a.innerText = count
-
-        // document.write(b)
-
-    }
-    let b = setInterval(counter, 1000)
-    setTimeout(counter, 1000)
 </script>

@@ -33,15 +33,15 @@ let myPromise = new Promise(function (resolve, reject) {
     } else {
       reject('chappal'); //reject value
     }
-  }, 5000);
+  }, 3000);
 });
   console.log(myPromise);
 
 
 myPromise.then(function (res) {
-  console.log('res:', res);
   // img.src = 'https://media0.giphy.com/media/Q81NcsY6YxK7jxnr4v/200w.webp?cid=ecf05e47du9rfrb5n1wqylpwka83yq4zksqob66dao6h9zsx&rid=200w.webp&ct=g';
-img.src="https://content.phonepe.com/ppcms/media/filer_public_thumbnails/filer_public/98/a2/98a299a0-6eeb-4aef-841d-844bf6772f88/success_-_p2p_-_000001.png__200x400_q85_subsampling-2.png"
+  img.src="https://content.phonepe.com/ppcms/media/filer_public_thumbnails/filer_public/98/a2/98a299a0-6eeb-4aef-841d-844bf6772f88/success_-_p2p_-_000001.png__200x400_q85_subsampling-2.png"
+  console.log('res:', res);
 })
 
 

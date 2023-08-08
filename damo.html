@@ -1,64 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <div id="container"></div>
-    <script>
+    <input type="text" placeholder="enter citty" id="city">
+    <button onclick="getwether()">submit</button>
+
+<script>
+let abc= "1c468c8ab39c82a29c8ebbd4e23f6be2"
+function getwether(){
+    let city=document.querySelector("#city").value
+    // console.log(a)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${abc}`)
+
+.then(function (res) {
+    return res.json(); //collecting stream
+    console.log(res)
+
+  })
+  .then(function (xyz) {
+    console.log('res:', xyz);
+  })
+  .catch(function (err) {
+    console.log('err:', err);
+  });
+
+}
+// getwether()
 
 
-
-        fetch('https://fakestoreapi.com/products')
-            .then(function (abc) {
-                return abc.json()
-
-
-            })
-            .then(function (xyz) {
-                console.log(xyz)
-                appendProducts(xyz);
-
-            })
-            .catch(function (err) {
-                console.log(err)
-
-            })
-
-
-
-        function appendProducts(products) {
-            const container = document.getElementById('container');
-
-
-            container.innerHTML = "";
-
-            products.forEach(function (el) {
-                let div = document.createElement('div');
-
-                let img = document.createElement('img');
-
-                img.src = el.image;
-
-                let title = document.createElement('p');
-
-                title.innerText = el.title;
-
-                let price = document.createElement('p');
-
-                price.innerText = el.price;
-
-                div.append(img, title, price);
-
-                container.append(div);
-            });
-        }
-
-    </script>
+</script>
 </body>
-
 </html>

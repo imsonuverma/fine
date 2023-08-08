@@ -19,17 +19,17 @@
   this.name = n;
   this.price = p;
 }
-// let arr=[];
+let arr=[];
 function nkiepro(e){
   e.preventDefault()
   let form= document.querySelector("#name")
-  let name=form.value
+  let name2=form.value
   let price2=form= document.querySelector("#price")
-  let price=price2.value
-  let prod=new nikeProductCF(name,price)
-  // arr.push(prod)
-  console.log(prod)
-
+  let price3=price2.value
+  let prod=new nikeProductCF(name2,price3)
+  arr.push(prod)
+  console.log(nikeProductCF.name)
+  localStorage.setItem(nikeProductCF.key,name2)
 
 }
 
