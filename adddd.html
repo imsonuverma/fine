@@ -59,8 +59,8 @@
 
         }
 
-         @media all and (min-width:481px) and (max-width:768px) {
-            #box{
+        @media all and (min-width:481px) and (max-width:768px) {
+            #box {
                 display: grid;
 
                 grid-template-columns: repeat(2, 1fr);
@@ -71,56 +71,37 @@
                     "gr gy";
             }
         }
-            @media all and (min-width:200px) and (max-width:480px) {
-                #box{
-                    display: grid;
-                    grid-template-columns: repeat(1, 1fr);
-                    grid-template-rows: repeat(5, 100px);
-                    grid-template-areas:
-                        "ye"
-                        "re"
-                        "bl"
-                        "gr"
-                        "gy";
-                }
-            } 
-            /* @media all and (min-width: 481px) and (max-width: 768px) {
-    #box {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 100px);
-        grid-template-areas:
-            "ye ye"
-            "re bl"
-            "gr gy";
-    }
-}
 
-@media all and (min-width: 200px) and (max-width: 480px) {
-    #box {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(5, 100px);
-        grid-template-areas:
-            "ye"
-            "re"
-            "bl"
-            "gr"
-            "gy";
-    }
-} */
-
+        @media all and (min-width:200px) and (max-width:480px) {
+            #box {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(5, 100px);
+                grid-template-areas:
+                    "ye"
+                    "re"
+                    "bl"
+                    "gr"
+                    "gy";
+            }
+        }
     </style>
 </head>
 
 <body>
     <div id="box">
-        <div id="nav">Navication</div>
+        <div class="nav"><i>Navication</i></div>
         <div>1</div>
         <div>2</div>
         <div>3</div>
         <div>4</div>
     </div>
 </body>
+    <script>
+        let a=document.getElementsByClassName("nav");
+        a.innerHTML
+        console.log(a.innerHTML)
+    </script>
+
 
 </html>
