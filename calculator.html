@@ -14,6 +14,7 @@
             border-radius: 30px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             margin-top: 50px;
+            font-size: 23px;
         }
 
         #key {
@@ -24,7 +25,9 @@
             margin-top: 50px;
             border-radius: 30px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+            display: grid;
+            justify-content: center;
+            align-items: center;
 
 
         }
@@ -44,8 +47,8 @@
             /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 
 
-
         }
+
 
         #btn>div {
             height: 100px;
@@ -82,7 +85,7 @@
         <div id="key"></div>
         <div id="btn">
             <div>7</div>
-            <div>9</div>
+            <div>8</div>
             <div>9</div>
             <div class="b">+</div>
             <div>6</div>
@@ -102,3 +105,32 @@
 </body>
 
 </html>
+<script>
+    let a = document.querySelectorAll("#btn>div")
+    for (let i = 0; i < a.length; i++) {
+        a[i].addEventListener("click", m)
+    }
+    let bag = ""
+
+    function m() {
+
+
+
+        let ax = event.target.innerText
+        if (ax == "C") {
+            document.querySelectorAll("#key")[0].innerText = ""
+            bag = ""
+        }
+        // console.log(ax)
+        else if (ax == "=") {
+            document.querySelectorAll("#key")[0].innerText = eval(bag)
+
+        }
+        else {
+            bag = bag + ax
+            document.querySelectorAll("#key")[0].innerText = bag
+        }
+
+    }
+    console.log(eval(2 + 3))
+</script>
