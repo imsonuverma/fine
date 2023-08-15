@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        form {
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 30%;
+            padding: 30px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TODO App</h1>
+    <div>
+        <form action="">
+            <label for="">task name</label>
+            <input type="text" id="task" placeholder="enter text"><br>
+            <label for="">piroty</label>
+            <select name="" id="piroty">
+                <option value="">select</option>
+                <option value="high">high</option>
+                <option value="low">low</option>
+            </select><br>
+            <input type="submit">
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>task</th>
+                    <th>piroty</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", todoapp)
+    let taskarr = [];
+    function todoapp(event) {
+        event.preventDefault()
+        let taskname = document.querySelector("#task").value;
+        let piroty = document.querySelector("#piroty").value;
+        let taskobj = {
+            task: taskname,
+            piro: piroty
+        }
+        taskarr.push(taskobj)
+        displaytable()
+        function displaytable() {
+            document.querySelector("tbody").innerHTML = ""
+            taskarr.forEach(function (elem) {
+                // for (let i = 0; i < taskarr.length; i++) {
+                let row = document.createElement("tr")
+                let col = document.createElement("td")
+                col.innerText = elem.task
+                let col2 = document.createElement("td")
+                col2.innerText = elem.piro
+                if (elem.piro == "low") {
+                    col2.style.backgroundColor = "red"
+                }
+                else if (elem.piro == "") {
+                    col2.style.backgroundColor = "none"
+                }
+                else {
+                    col2.style.backgroundColor = "green"
+                }
+                let col3 = document.createElement("td")
+                col3.innerText = "delete"
+                col3.addEventListener("click", function (event) {
+                    event.target.parentElement.remove()
+                })
+                row.append(col, col2, col3)
+                document.querySelector("tbody").append(row)
+            })
+        }
+
+
+    }
+</script>
