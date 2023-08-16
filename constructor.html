@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="" id="productform">
+    <input type="text" placeholder="name" id="name">
+    <input type="text" placeholder="price" id="price">
+    <input type="submit">
+  </form>
+</body>
+
+</html>
+<script>
+  function abc(n, m) {
+    this.name = n,
+      this.price = m
+  }
+
+  let arr = [];
+  document.querySelector("#productform").addEventListener("submit", nikeproduct)
+  function nikeproduct(ev) {
+    ev.preventDefault()
+    let name = document.querySelector("#name").value
+    let price = document.querySelector("#price").value
+    // let price = productform.price.value
+    let prodname2 = new abc(name, price)
+    arr.push(prodname2)
+    console.log(arr)
+  }
+
+</script>

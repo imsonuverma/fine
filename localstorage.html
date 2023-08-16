@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkwCTDKR4D_jexAF2LykEhFbhlc2wu6n03kyqUnex_7Q&s"
+        alt=""><br><br>
+    <button>like <span></span></button>
+    <button>dislike <span></span></button>
+</body>
+
+</html>
+<script>
+    let like ;
+    if(localStorage.getItem("like")==null){
+        like=0
+    }
+    else{
+        like=localStorage.getItem("like")
+    }
+    document.querySelectorAll("span")[0].innerText = like
+    let dislike ;
+    if(localStorage.getItem("like")==null){
+        dislike=0
+    }
+    else{
+        dislike=localStorage.getItem("like")
+    }
+    document.querySelectorAll("span")[1].innerText = dislike
+
+    let like2 = document.querySelector("button").addEventListener("click", function () {
+        like++
+        localStorage.setItem("like", like)
+        document.querySelector("span").innerText = like
+
+        // localStorage.getItem("like")
+
+    })
+    let dislike2 = document.querySelectorAll("button")[1].addEventListener("click", function () {
+        dislike++
+        localStorage.setItem("dislike", dislike)
+
+        document.querySelectorAll("span")[1].innerText = dislike
+    })
+
+
+</script>

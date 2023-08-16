@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        div {
+            width: 40%;
+            margin: auto;
+        }
+
+        #link {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="link">
+        <div><a href="home.html" >home</a></div>
+        <div><a href="applied.html" >applied</a></div>
+        <div><a href="bookmark.html" >bookmark</a></div>
+
+    </div>
+    <div>
+        <form action="">
+            <h1>application </h1>
+            <input type="text" placeholder="name" id="name"><br>
+            <input type="text" placeholder="email" id="email"><br>
+            <select id="role">
+                <option value="">select</option><br>
+                <option value="fsd">frontend</option>
+                <option value="backend">backend</option>
+                <option value="full">full</option>
+            </select><br>
+            <input type="text" placeholder="salary" id="salary"><br>
+            <input type="submit" id="submit">
+        </form>
+    </div>
+    <!-- <a href="todo.html" target="_blank">abc</a> -->
+</body>
+
+</html>
+<script>
+    arry = JSON.parse(localStorage.getItem("data")) || []
+    document.querySelector("form").addEventListener("submit", abbc)
+    function abbc(event) {
+        event.preventDefault()
+        let obj = {
+            name: document.querySelector("#name").value,
+            email: document.querySelector("#email").value,
+            role: document.querySelector("#role").value,
+            salary: document.querySelector("#salary").value
+        }
+        arry.push(obj)
+        localStorage.setItem("data", JSON.stringify(arry))
+    }
+    console.log(arry)
+
+
+</script>

@@ -65,9 +65,17 @@
 </html>
 <script>
     document.querySelector("form").addEventListener("submit", todoapp)
-    let taskarr = [];
+    let taskarr;
+    if (JSON.parse(localStorage.getItem("arr")) == null) {
+        taskarr = []
+
+    }
+    else {
+        taskarr = JSON.parse(localStorage.getItem("arr"))
+    };
     function todoapp(event) {
         event.preventDefault()
+        displaytable(taskarr)
         let taskname = document.querySelector("#task").value;
         let piroty = document.querySelector("#piroty").value;
         let taskobj = {
@@ -75,7 +83,7 @@
             piro: piroty
         }
         taskarr.push(taskobj)
-        displaytable()
+        localStorage.setItem("arr", JSON.stringify(taskarr))
         function displaytable() {
             document.querySelector("tbody").innerHTML = ""
             taskarr.forEach(function (elem) {
@@ -103,7 +111,6 @@
                 document.querySelector("tbody").append(row)
             })
         }
-
 
     }
 </script>

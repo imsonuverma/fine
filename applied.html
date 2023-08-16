@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>applied</title>
+</head>
+
+<body>
+    <div id="link">
+        <div><a href="home.html" >home</a></div>
+        <div><a href="applied.html" >applied</a></div>
+        <div><a href="bookmark.html" >bookmark</a></div>
+
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>role</th>
+                    <th>salary</th>
+                    <!-- <th>delete</th> -->
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
+<script>
+    let appliedjob = JSON.parse(localStorage.getItem("data"))
+    console.log(appliedjob)
+    appliedjob.forEach(function (elem) {
+
+
+        let tr = document.createElement("tr")
+        let td = document.createElement("td")
+        td.innerText=elem.name
+        let td2 = document.createElement("td")
+        td.innerText=elem.email
+
+        let td3 = document.createElement("td")
+        td.innerText=elem.role
+
+        let td4 = document.createElement("td")
+        td.innerText=elem.salary
+
+        let td5 = document.createElement("td")
+        td.innerText="bookmark"
+        tr.append(td,td2,td3,td4,td5)
+        document.querySelector("tbody").append(tr)
+console.log(td2)
+    });
+</script>
