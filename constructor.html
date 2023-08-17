@@ -33,5 +33,31 @@
     arr.push(prodname2)
     console.log(arr)
   }
+  let obj = {
+    name: "kitchen",
+    porpose: "cooking",
+    check: function (ab,bc,cd) {
+      console.log(`${this.name} ${this.porpose} and ${ab} ${bc} ${cd}`);
+    }
+  };
+  const bedroom = {
+    name: "bedroom",
+    purpose: "rest"
+  }
 
+  // obj.check(55,65);
+  let c = {
+    name: "sonu",
+    porpose: "rest"
+  }
+  // obj.check(55,65);
+  let d = {
+    name: "ajay",
+    porpose: "ghar"
+  }
+  obj.check.call(d, "samosa,", "jalebi",);
+  obj.check.apply(c, ["burger", "pizza","momos"] );
+  let x=obj.check.bind(c, "burger", "pizza","momos" );
+  
+  x()
 </script>
