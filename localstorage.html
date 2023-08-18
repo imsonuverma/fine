@@ -25,11 +25,11 @@
     }
     document.querySelectorAll("span")[0].innerText = like
     let dislike ;
-    if(localStorage.getItem("like")==null){
+    if(localStorage.getItem("dislike")==null){
         dislike=0
     }
     else{
-        dislike=localStorage.getItem("like")
+        dislike=localStorage.getItem("dislike")
     }
     document.querySelectorAll("span")[1].innerText = dislike
 

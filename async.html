@@ -8,18 +8,78 @@
 </head>
 
 <body>
-    <h2 id="count"></h2>
+    <h2 id="count">image</h2>
+    <input type="text" id="om" placeholder="enter url">
+    <button>submit</button>
+    <button id="start">start</button>
+    <button id="end">end</button>
+    <div id="container"></div>
+
+    <!-- <img src="" alt=""> -->
 </body>
 
 </html>
 <script>
+    // let counter = 1000
+    // let h2 = document.querySelector("#count")
+    // // h2.addEventListener("click", abc)
+    // function abc() {
+    //     let input = document.querySelector("#om").value
+    //     counter--
+    //     h2.innerText = counter
+    //     console.log(input)
+
+    //     if (input == "omkar") {
+    //         clearInterval(a)
+    //         h2.innerText = ""
+    //     }if (counter == 0) {
+    //         clearInterval(a)
+    //     }
+
+    // }
+    // let a = setInterval(abc, 100)
+    //     //2nd part  
     let counter = 0
-    let h2 = document.querySelector("#count")
-    // h2.addEventListener("click", abc)
-    function abc() {
-        counter++
-        h2.innerText = counter
+    let x;
+    document.querySelector("button").addEventListener("click", Image)
+    function Image() {
+        let url = document.querySelector("#om").value
+        let image = JSON.parse(localStorage.getItem("image")) || []
+        image.push(url)
+        localStorage.setItem("image", JSON.stringify(image))
+        console.log(image)
     }
-    setInterval(abc, 3000)
-    // setTimeout(abc, 8000)
+    document.querySelector("#start").addEventListener("click", start)
+    function start() {
+        let container = document.querySelector("#container")
+        container.innerHTML = ""
+
+        let image = JSON.parse(localStorage.getItem("image")) || []
+        // localStorage.setItem("image", JSON.stringify(image)) //no need
+        img = document.createElement("img")
+        img.src = image[counter]
+        container.append(img)
+
+        counter++
+
+
+
+        x = setInterval(function () {
+            img.src = image[counter]
+            container.append(img)
+            counter++
+            if (counter == image.length) {
+                counter = 0
+            }
+            console.log(counter)
+
+        }, 2000)
+
+    }
+    document.querySelector("#end").addEventListener("click", end)
+    function end() {
+        clearInterval(x)
+
+    }
+
 </script>
