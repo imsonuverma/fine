@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://i.gifer.com/ZKZg.gif" alt="">
+    <input type="text">
+    <button onclick="abc()">click</button>
+    <script src="your-script-file.js"></script>
+</body>
+</html>
+<script>
+    function abc() {
+    let myPromise = new Promise(function (resolve, reject) {
+        let a = document.querySelector("input").value;
+
+        setTimeout(function () {
+            if (a === "omkar") {
+                resolve("sweet");
+            } else {
+                reject("chapal");
+            }
+        }, 3000);
+    });
+
+    myPromise.then(function (work) {
+        console.log("working");
+        let img = document.querySelector("img");
+        img.src = "https://i.gifer.com/7efs.gif";
+    }).catch(function (err) {
+        console.log("error h bhai");
+        let img = document.querySelector("img");
+        img.src =
+            "https://media2.giphy.com/media/qrIsXgEdorkI/giphy.webp?cid=ecf05e47ia5dws66qnpywdbt1tmj9qlmhwc4uqivtp1tpagw&ep=v1_gifs_search&rid=giphy.webp&ct=g";
+    }).finally(function(){
+        console.log("permanet h bhai");
+
+    })
+}
+
+</script>

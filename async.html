@@ -54,21 +54,20 @@
         let container = document.querySelector("#container")
         container.innerHTML = ""
 
-        let image = JSON.parse(localStorage.getItem("image")) || []
+        let jpg = JSON.parse(localStorage.getItem("image")) || []
         // localStorage.setItem("image", JSON.stringify(image)) //no need
-        img = document.createElement("img")
-        img.src = image[counter]
+        let img = document.createElement("img")
+        img.src = jpg[counter]
         container.append(img)
-
         counter++
 
 
 
         x = setInterval(function () {
-            img.src = image[counter]
+            img.src = jpg[counter]
             container.append(img)
             counter++
-            if (counter == image.length) {
+            if (counter == jpg.length) {
                 counter = 0
             }
             console.log(counter)
