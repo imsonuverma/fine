@@ -17,13 +17,13 @@
     let myPromise = new Promise(function (resolve, reject) {
         let a = document.querySelector("input").value;
 
-        setTimeout(function () {
+        // setTimeout(function () {
             if (a === "omkar") {
                 resolve("sweet");
             } else {
                 reject("chapal");
             }
-        }, 3000);
+        // }, 3000);
     });
 
     myPromise.then(function (work) {

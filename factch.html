@@ -1,105 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr)
+    }
+
+    img {
+      width: 100%;
+      /* height: 150px; */
+    }
+
+    #container>div {
+      text-align: center;
+      border-radius: 30px;
+
+      margin: auto;
+      margin: 15px;
+      /* height: 400px; */
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+  </style>
 </head>
+
 <body>
-    
+  <button onclick="hightolow()">sort high to low</button>
+  <button onclick="lowtohigh()">sort low to high</button>
+  <div id="container"></div>
+
 </body>
+
 </html>
 <script>
-    //fetch is going to take time
-//it should not block other code
-//fetch needs to be a promise
-//this is async call
 
-//.then & .catch
-//async await
+  //promises
+  let a = fetch('https://fakestoreapi.com/products')
+    .then(function (work) {
+      // console.log("working")
+      work.json().then(function (work) {
+        // console.log(work)
 
-// i want to make an api call
+      }).catch(function (err) {
+        console.log(err)
 
-//fetch is API
+      })
+    })
 
-//Prototype is inheritance
+  // console.log(a)
+  //convert into async wait
+  let data;
+  async function abx() {
+    try {
+      let b = await fetch('https://fakestoreapi.com/products')
+      data = await b.json()
+      appendProduct(data)
 
-//Prototype ( fetch ) is a tool
-//Inheritence is a tool or is it a concept
-
-//Inheritence is js is implemented using prototype
-
-//API is used using a tool called fetch()
-
-fetch('https://fakestoreapi.com/products')
-  .then(function (res) {
-    return res.json(); //collecting stream
-  })
-  .then(function (res) {
-    console.log('res:', res);
-  })
-  .catch(function (err) {
-    console.log('err:', err);
-  });
-
-//convert above code into async await
-
-// let container = document.getElementById('container');
-
-// let data;
-// async function getData() {
-//   try {
-//     let res = await fetch('https://fakestoreapi.com/products');
-
-//     //convert the stream into actual data
-
-//     data = await res.json();
-
-//     appendProducts(data);
-//   } catch (err) {
-//     console.log('err:', err);
-//   }
-// }
-
-// getData();
+      // console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  abx()
+  console.log("ok")
 
 
+  function appendProduct(data) {
+    data.forEach(function (val) {
+      console.log(val)
+      let div = document.createElement("div")
+      let img = document.createElement("img")
+      img.src = val.image
+      let title = document.createElement("p")
+      title.innerText = val.title
+      let price = document.createElement("p")
+      price.innerText = val.price
+      let container = document.querySelector("#container")
+      div.append(img, title, price)
+      container.append(div)
+      console.log(img)
+    });
+  }
+  function hightolow() {
 
-
-
-
-
-
-
-
-
-
-//we need to append
-
-// function appendProducts(data) {
-//   //data - array of object
-
-//   container.innerHTML = null;
-
-//   data.forEach(function (el) {
-//     let div = document.createElement('div');
-
-//     let img = document.createElement('img');
-
-//     img.src = el.image;
-
-//     let title = document.createElement('p');
-
-//     title.innerText = el.title;
-
-//     let price = document.createElement('p');
-
-//     price.innerText = el.price;
-
-//     div.append(img, title, price);
-
-//     container.append(div);
-//   });
-// }
+  }
 
 </script>
