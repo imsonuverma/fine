@@ -6,20 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<!-- https://maps.google.com/maps?q=delhi&t=&z=13&ie=UTF8&iwloc=&output=embed -->
 
 <body>
     <input type="text" placeholder="enter city" id="input">
     <button onclick="getweather()">submit</button>
+    <div id="container"></div>
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="400" height="300" id="gmap_canvas" frameborder="0" scrolling="no"
+                marginheight="0" marginwidth="0"></iframe><a href="https://123movies-i.net">insidious 2
+                123movies</a><br>
+            <style>
+                .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 500px;
+                    width: 600px;
+                }
+            </style><a href="https://www.embedgooglemap.net"></a>
+            <style>
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 500px;
+                    width: 600px;
+                }
+            </style>
+        </div>
+    </div>
+    </style>
+    </div><br />
 </body>
 
 </html>
 <script>
-
+    let data;
+    let city;
     async function getweather() {
+
         // let key="1c468c8ab39c82a29c8ebbd4e23f6be2"
-        let city = document.querySelector("#input").value
-        let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${"1c468c8ab39c82a29c8ebbd4e23f6be2"}`)
-        let data = await res.json()
-        console.log(res)
+        try {
+            city = document.querySelector("#input").value
+            let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${"1c468c8ab39c82a29c8ebbd4e23f6be2"}&units=metric`)
+            data = await res.json()
+            append(data)
+            console.log(data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    function append(data) {
+        let map = document.querySelector("#gmap_canvas")
+        let container = document.querySelector("#container")
+        container.innerHTML = null
+        // data.forEach( function(val){
+        let div = document.createElement("div")
+        let name = document.createElement("p")
+        name.innerText = data.name
+        let temp = document.createElement("p")
+        temp.innerText = data.main.temp
+        let humidity = document.createElement("p")
+        humidity.innerText = data.main.humidity
+        div.append(name, temp, humidity)
+        container.append(div)
+        map.src = `https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+        // })
     }
 </script>
