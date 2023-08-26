@@ -27,23 +27,25 @@
 </html>
 <script>
     let id;
+    let data;
     let movide = document.querySelector("#movie")
     async function main() {
         try {
             let infor = document.querySelector("#box").value
-            console.log(infor)
-            let res = await fetch(`http://www.omdbapi.com/?apikey=7cc2c43f&s=${infor}`)
-            let data = await res.json()
-            let actualdata = data.Search;
+            res = await fetch(`http://www.omdbapi.com/?apikey=7cc2c43f&s=${infor}`)
+            data = await res.json()
+            // console.log(data)
+            actualdata = data.Search
             if (actualdata != undefined) {
                 appendmovie(actualdata)
             }
+
             console.log(actualdata)
-        }
-        catch (err) {
+        } catch (err) {
             console.log(err)
         }
     }
+
     function appendmovie(data) {
         movide.innerHTML = null
         data.forEach(function (el) {
@@ -52,7 +54,6 @@
             movide.append(p)
         })
     }
-
     function debounce(func, delay) {
         if (id) {
             clearTimeout(id)
@@ -61,6 +62,6 @@
             func()
         }, delay);
     }
-    
+
 
 </script>

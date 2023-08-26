@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="button"></div>
+
+    <div id="container"></div>
+</body>
+
+</html>
+<script>
+    let getdata = async (pagenum) => {
+        try {
+            let res = await fetch(`http://localhost:3000/posts?_page=${pagenum}&_limit=3`)
+            let data = await res.json()
+
+            appenddata(data)
+            console.log(data)
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    getdata()
+    let container = document.querySelector("#container")
+
+    function appenddata(data) {
+        container.innerHTML = ""
+
+        data.forEach((element) => {
+            let p = document.createElement("p")
+            p.innerText = element.title
+            container.append(p)
+
+        });
+    }
+
+
+    let buttondiv = document.querySelector("#button")
+    let showbutton = (results, perpage) => {
+
+        // let results = data.length;
+        // let perpage = 3;
+        let buttons = Math.ceil((results / perpage));
+        for (let i = 1; i <= buttons; i++) {
+            let button = document.createElement("button")
+            button.innerText = i
+            button.onclick = function () {
+                getdata(i)
+            }
+            buttondiv.append(button)
+
+        }
+
+    }
+    showbutton(11, 3)
+
+
+</script>

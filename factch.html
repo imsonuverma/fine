@@ -59,7 +59,7 @@
     try {
       let b = await fetch('https://fakestoreapi.com/products')
       data = await b.json()
-      // appendProduct(data)
+      appendProduct(data)
 
       // console.log(data)
     } catch (err) {

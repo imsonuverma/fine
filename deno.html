@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>post</h1>
+    <input type="text" id="id" placeholder="id">
+    <input type="text" id="title" placeholder="title">
+    <input type="text" id="author" placeholder="author">
+    <button onclick="addpro()">submit</button>
+    <h1>delete</h1>
+    <input type="text" placeholder="enter id" id="dele">
+    <button onclick="dele()">delete</button>
+</body>
+
+</html>
+<script>
+    async function addpro() {
+        try {
+            id = document.querySelector("#id").value;
+            title = document.querySelector("#title").value;
+            author = document.querySelector("#author").value;
+            let senddata = {
+                id: id,
+                title: title,
+                author: author,
+            };
+
+            let res = await fetch(`http://localhost:3000/posts`, {
+                method: "post",
+                body: JSON.stringify(senddata),
+                headers: {
+                    "content-type": "application/json",
+                },
+            });
+            let data = await res.json();
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    async function dele() {
+        try {
+            id = document.querySelector("#dele").value;
+
+            let res = await fetch(`http://localhost:3000/posts/${id}`, {
+                method: "delete",
+                headers: {
+                    "content-type": "application/json",
+                },
+            });
+            let data = await res.json();
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+</script>
