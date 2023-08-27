@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
 <script>
   let cat = {
-    name: "sonu",
-    porpose: "rest",
-  sucess:false
+    type: 'cat',
+    legs: 8,
+    tail: true,
+    store:"miniso"
   }
-let tiger=Object.create(cat)
-// console.log(tiger.sucess)
-tiger.speed=700
-tiger.sucess=true
+  
+  let tiger = Object.create(cat)
+  let elel = Object.create(tiger)
+  // console.log(tiger.sucess)
+  tiger.speed = 700
+  elel.sucess = true
 
 
-// console.log(tiger.sucess)
+  console.log(elel.store)
+  console.log(elel)
   //consctructor method
   function abc(n, m) {
     this.name = n,
       this.price = m
   }
-  abc.prototype.brand="tata"
-  abc.prototype.sale=function(){
+  abc.prototype.brand = "tata"
+  abc.prototype.sale = function () {
     console.log("today is friday")
   }
-  let a=new abc("in2k","sonu")
-  let b=new abc("in68","ravi")
-  let c=new abc("1n67","yogesh")
+  let a = new abc("in2k", "sonu")
+  let b = new abc("in68", "ravi")
+  let c = new abc("1n67", "yogesh")
   // console.log(b)
   // console.log(a.sale())
 
 
-let obj222={
-  roll:45
-}
-let obj33={
-  roll:45
-}
-let obj55={
-  roll:45
-}
-let arr3=Object()
-let aa4=[2,4,5]
-Object.prototype.shoes=function(){
-  console.log("my name is sonu verma")
-}
-// console.log(aa4)
-console.log(aa4.shoes())
-console.log(typeof(arr3))
+  let obj222 = {
+    roll: 45
+  }
+  let obj33 = {
+    roll: 45
+  }
+  let obj55 = {
+    roll: 45
+  }
+  let arr3 = Object()
+  let aa4 = [2, 4, 5]
+  Object.prototype.shoes = function () {
+    console.log("my name is sonu verma")
+  }
+  // console.log(aa4)
+  console.log(aa4.shoes())
+  console.log(typeof (arr3))
 
 </script>
