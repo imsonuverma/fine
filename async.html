@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    <h2 id="count">image</h2>
+    <!-- <h2 id="count">image</h2> -->
     <input type="text" id="om" placeholder="enter url">
     <button>submit</button>
     <button id="start">start</button>
-    <button id="end">end</button>
+    <button id="pause">pause</button>
     <div id="container"></div>
 
     <!-- <img src="" alt=""> -->
@@ -44,7 +44,7 @@
     document.querySelector("button").addEventListener("click", Image)
     function Image() {
         let url = document.querySelector("#om").value
-        let image = JSON.parse(localStorage.getItem("image")) || []
+        let image =  JSON.parse(localStorage.getItem("image"))||[]
         image.push(url)
         localStorage.setItem("image", JSON.stringify(image))
         console.log(image)
@@ -52,7 +52,7 @@
     document.querySelector("#start").addEventListener("click", start)
     function start() {
         let container = document.querySelector("#container")
-        container.innerHTML = ""
+        container.innerHTML  = null
 
         let jpg = JSON.parse(localStorage.getItem("image")) || []
         // localStorage.setItem("image", JSON.stringify(image)) //no need
@@ -75,10 +75,11 @@
         }, 2000)
 
     }
-    document.querySelector("#end").addEventListener("click", end)
-    function end() {
+    document.querySelector("#pause").addEventListener("click", pause)
+    function pause() {
         clearInterval(x)
 
     }
+    setTimeout(start, 4000);
 
 </script>
