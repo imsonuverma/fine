@@ -1,0 +1,32 @@
+#main {
+    display: flex;
+    border: 1px solid;
+    /* justify-content: center; */
+    justify-content: space-around;
+
+
+  }
+
+  #container {
+    display: flex;
+    /* width: 100px; */
+    /* margin: auto; */
+    border: 1px solid;
+  }
+
+  #home {
+    display: flex;
+    border: 1px solid;
+width: 100px;
+  }
+
+  #container>h3 {
+    display: flex;
+    /* width: 30px; */
+    height: 50px;
+    border: 1px solid;
+    justify-content: center;
+    justify-content: space-evenly;
+
+    /* text-justify: ce; */
+  }

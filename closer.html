@@ -34,13 +34,13 @@
             let infor = document.querySelector("#box").value
             res = await fetch(`http://www.omdbapi.com/?apikey=7cc2c43f&s=${infor}`)
             data = await res.json()
-            // console.log(data)
-            actualdata = data.Search
-            if (actualdata != undefined) {
-                appendmovie(actualdata)
+            console.log(data)
+            // actualdata = data.Search
+            if (data.Search != undefined) {
+                appendmovie(data.Search)
             }
 
-            console.log(actualdata)
+            console.log(data)
         } catch (err) {
             console.log(err)
         }
@@ -55,12 +55,12 @@
         })
     }
     function debounce(func, delay) {
-        if (id) {
-            clearTimeout(id)
-        }
-        id = setTimeout(function () {
-            func()
-        }, delay);
+            if (id) {
+                clearTimeout(id)
+            }
+            id = setTimeout(function () {
+                func()
+            }, delay);
     }
 
 

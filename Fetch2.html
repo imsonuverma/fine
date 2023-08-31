@@ -56,7 +56,6 @@
         }
     }
     function append(data) {
-        let map = document.querySelector("#gmap_canvas")
         let container = document.querySelector("#container")
         container.innerHTML = null
         // data.forEach( function(val){
@@ -69,6 +68,7 @@
         humidity.innerText = data.main.humidity
         div.append(name, temp, humidity)
         container.append(div)
+        let map = document.querySelector("#gmap_canvas")
         map.src = `https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`
         // })
     }
